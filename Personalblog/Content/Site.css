@@ -1,0 +1,226 @@
+﻿@font-face {
+    font-family: MuseoSlab;
+    src: url(fonts/Museo_Slab_500.otf);
+}
+body {
+    font-family:"MuseoSlab", serif !important;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family:"MuseoSlab", serif !important;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+
+
+.header-logo {
+    position: absolute;
+    top: 6px;
+    left: 20px;
+    background-color: white;
+    height: 40px;
+    border-radius: 20px;
+    width: 40px;
+}
+
+    .header-logo a {
+        margin-top: 9px;
+        float: left;
+        margin-left: 3px;
+    }
+
+        .header-logo a img {
+            height: 23px;
+            width: 35px;
+        }
+
+
+
+
+    .navbar-fixed-top {
+        min-height: 60px;
+    }
+
+        .navbar-fixed-top .container {
+            max-width: unset;
+        }
+
+        .navbar-fixed-top.navbar-inverse .navbar-nav > li > a {
+            color: white !important;
+            font-size: 16px;
+            padding: 5px 15px !important;
+        }
+
+        .navbar-fixed-top ul {
+            margin-top: 20px;
+        }
+        .navbar-fixed-top ul li{
+            margin-right: 20px;
+            margin-left:20px;
+        }
+
+         .navbar-fixed-top.navbar-inverse .navbar-nav > li.main-cta > a {
+            color: #563558 !important;
+            text-decoration: none;
+        }
+
+section.videoIntro .title {
+    position: absolute;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    z-index: 99;
+    white-space: nowrap;
+}
+    section.videoIntro .title .home-profile-img {
+        height: 180px;
+        width: 180px;
+        background-color: white;
+        margin: auto;
+        border-radius: 100px;
+    }
+        section.videoIntro .title .home-profile-img img {
+            width: 100%;
+            height: 100%;
+            border-radius: 100px;
+        }
+    section.videoIntro .title h2 {
+        color: white;
+        font-size: 3em;
+        line-height: 1;
+        white-space:normal;
+    }
+    section.videoIntro .title .btn-default,section.videoIntro .title .btn-default:hover,section.videoIntro .title .btn-default:focus {
+        border-color:white;
+        color: #563558 !important;
+        border-radius: 20px;
+    }
+        section.videoIntro .title h2 span.byline {
+            display: block;
+            font-size: .42em;
+            line-height: 2;
+            font-weight: 300;
+        }
+
+section.videoIntro {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+            section.videoIntro .overlay {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 9;
+                background: #384148;
+                opacity: 0.7;
+                filter: alpha(opacity=calc(70));
+                -webkit-transition: all 0.15s ease-in-out;
+                -moz-transition: all 0.15s ease-in-out;
+                -ms-transition: all 0.15s ease-in-out;
+                -o-transition: all 0.15s ease-in-out;
+                transition: all 0.15s ease-in-out;
+            }
+            section.videoIntro .videoWrap iframe, section.videoIntro .videoWrap object, section.videoIntro .videoWrap embed {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            section.videoIntro > img.background-img {
+                width: 100%;
+                height: 100%;
+            }
+            body.home{
+                overflow-y:hidden;
+                background-color: black;
+            }
+@media(min-width:768px) {
+    .navbar-inverse {
+        background-color: #9CBDBC;
+        border-color: #FFFFFF;
+    }
+}
+
+@media(max-width:768px) {
+    .navbar-inverse {
+        background-color: unset;
+        border-color: unset;
+    }
+
+    .navbar-header {
+        background-color: #9CBDBC;
+        border-color: #FFFFFF;
+    }
+
+    .navbar-inverse .navbar-collapse {
+        background-color: #9CBDBC;
+        width: 200px;
+        float: left;
+        border-color: white;
+    }
+
+    .navbar-inverse .navbar-toggle {
+        border-color: white;
+        float: left;
+        margin-left: 20px;
+    }
+    .navbar-fixed-top ul.pull-right{
+        float:left !important;
+    }
+    .navbar-fixed-top ul li{
+        margin-bottom: 10px;
+    }
+
+        .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+            background-color: #2b4040;
+        }
+    .header-logo {
+        right: 20px;
+        left:unset;
+    }
+}
+
+
+@media(max-width:590px){
+    section.videoIntro .title .home-profile-img {
+        height: 100px;
+        width: 100px;
+        background-color: white;
+        margin: auto;
+        border-radius: 60px;
+    }
+        section.videoIntro .title .home-profile-img img {
+            width: 100%;
+            height: 100%;
+            border-radius: 60px;
+        }
+}
