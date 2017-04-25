@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="619c2e05eed64f58ac7e73092c500daa" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_112456_mohansglobeModel.Contact" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_112456_mohansglobeModel.Education" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_112456_mohansglobeModel.Experience" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_112456_mohansglobeModel.Profile" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_112456_mohansglobeModel.ProfileIdentity" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_112456_mohansglobeModel.Skill" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_112456_mohansglobeModel.SkillCategory" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <AssociationConnector Association="DB_112456_mohansglobeModel.FK_Contact_ProfileIdentity" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_112456_mohansglobeModel.FK_Education_ProfileIdentity" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_112456_mohansglobeModel.FK_Experience_ProfileIdentity" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_112456_mohansglobeModel.FK_Profile_ProfileIdentity" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_112456_mohansglobeModel.FK_Skill_ProfileIdentity" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_112456_mohansglobeModel.FK_SkillCategory_ProfileIdentity" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_112456_mohansglobeModel.FK_Skill_SkillCategory" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

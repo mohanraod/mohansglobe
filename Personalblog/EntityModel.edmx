@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_112456_mohansglobeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ProfileNo" Type="int" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Institution" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Year" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Percentage" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="HighlightKey" Type="ntext" Nullable="false" />
+          <Property Name="ProfileNo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Experience">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Year" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Position" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Responsibilities" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="HighlightKey" Type="ntext" Nullable="false" />
+          <Property Name="ProfileNo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FacebookId" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="MailId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Website" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Skype" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="LinkedInId" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="TwitterId" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="GooglePlusId" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ProfileNo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfileIdentity">
+          <Key>
+            <PropertyRef Name="ProfileNo" />
+          </Key>
+          <Property Name="ProfileNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ProfileSummary" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ResumeLocation" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="SkillCategory" Type="int" Nullable="false" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="Proficiency" Type="int" Nullable="false" />
+          <Property Name="ProfileNo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="ProfileNo" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Contact_ProfileIdentity">
+          <End Role="ProfileIdentity" Type="Self.ProfileIdentity" Multiplicity="1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileIdentity">
+              <PropertyRef Name="ProfileNo" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="ProfileNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Education_ProfileIdentity">
+          <End Role="ProfileIdentity" Type="Self.ProfileIdentity" Multiplicity="1" />
+          <End Role="Education" Type="Self.Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileIdentity">
+              <PropertyRef Name="ProfileNo" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="ProfileNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Experience_ProfileIdentity">
+          <End Role="ProfileIdentity" Type="Self.ProfileIdentity" Multiplicity="1" />
+          <End Role="Experience" Type="Self.Experience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileIdentity">
+              <PropertyRef Name="ProfileNo" />
+            </Principal>
+            <Dependent Role="Experience">
+              <PropertyRef Name="ProfileNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profile_ProfileIdentity">
+          <End Role="ProfileIdentity" Type="Self.ProfileIdentity" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileIdentity">
+              <PropertyRef Name="ProfileNo" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="ProfileNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Skill_ProfileIdentity">
+          <End Role="ProfileIdentity" Type="Self.ProfileIdentity" Multiplicity="1" />
+          <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileIdentity">
+              <PropertyRef Name="ProfileNo" />
+            </Principal>
+            <Dependent Role="Skill">
+              <PropertyRef Name="ProfileNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Skill_SkillCategory">
+          <End Role="SkillCategory" Type="Self.SkillCategory" Multiplicity="1" />
+          <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Skill">
+              <PropertyRef Name="SkillCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillCategory_ProfileIdentity">
+          <End Role="ProfileIdentity" Type="Self.ProfileIdentity" Multiplicity="1" />
+          <End Role="SkillCategory" Type="Self.SkillCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileIdentity">
+              <PropertyRef Name="ProfileNo" />
+            </Principal>
+            <Dependent Role="SkillCategory">
+              <PropertyRef Name="ProfileNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_112456_mohansglobeModelStoreContainer">
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Experience" EntityType="Self.Experience" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileIdentity" EntityType="Self.ProfileIdentity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillCategory" EntityType="Self.SkillCategory" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Contact_ProfileIdentity" Association="Self.FK_Contact_ProfileIdentity">
+            <End Role="ProfileIdentity" EntitySet="ProfileIdentity" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Education_ProfileIdentity" Association="Self.FK_Education_ProfileIdentity">
+            <End Role="ProfileIdentity" EntitySet="ProfileIdentity" />
+            <End Role="Education" EntitySet="Education" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Experience_ProfileIdentity" Association="Self.FK_Experience_ProfileIdentity">
+            <End Role="ProfileIdentity" EntitySet="ProfileIdentity" />
+            <End Role="Experience" EntitySet="Experience" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profile_ProfileIdentity" Association="Self.FK_Profile_ProfileIdentity">
+            <End Role="ProfileIdentity" EntitySet="ProfileIdentity" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Skill_ProfileIdentity" Association="Self.FK_Skill_ProfileIdentity">
+            <End Role="ProfileIdentity" EntitySet="ProfileIdentity" />
+            <End Role="Skill" EntitySet="Skill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Skill_SkillCategory" Association="Self.FK_Skill_SkillCategory">
+            <End Role="SkillCategory" EntitySet="SkillCategory" />
+            <End Role="Skill" EntitySet="Skill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillCategory_ProfileIdentity" Association="Self.FK_SkillCategory_ProfileIdentity">
+            <End Role="ProfileIdentity" EntitySet="ProfileIdentity" />
+            <End Role="SkillCategory" EntitySet="SkillCategory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_112456_mohansglobeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProfileNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProfileIdentity" Relationship="Self.FK_Contact_ProfileIdentity" FromRole="Contact" ToRole="ProfileIdentity" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Institution" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Percentage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="HighlightKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProfileNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProfileIdentity" Relationship="Self.FK_Education_ProfileIdentity" FromRole="Education" ToRole="ProfileIdentity" />
+        </EntityType>
+        <EntityType Name="Experience">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Responsibilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="HighlightKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProfileNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProfileIdentity" Relationship="Self.FK_Experience_ProfileIdentity" FromRole="Experience" ToRole="ProfileIdentity" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FacebookId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Skype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LinkedInId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TwitterId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GooglePlusId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProfileNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProfileIdentity" Relationship="Self.FK_Profile_ProfileIdentity" FromRole="Profile" ToRole="ProfileIdentity" />
+        </EntityType>
+        <EntityType Name="ProfileIdentity">
+          <Key>
+            <PropertyRef Name="ProfileNo" />
+          </Key>
+          <Property Name="ProfileNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProfileSummary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ResumeLocation" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Contacts" Relationship="Self.FK_Contact_ProfileIdentity" FromRole="ProfileIdentity" ToRole="Contact" />
+          <NavigationProperty Name="Educations" Relationship="Self.FK_Education_ProfileIdentity" FromRole="ProfileIdentity" ToRole="Education" />
+          <NavigationProperty Name="Experiences" Relationship="Self.FK_Experience_ProfileIdentity" FromRole="ProfileIdentity" ToRole="Experience" />
+          <NavigationProperty Name="Profiles" Relationship="Self.FK_Profile_ProfileIdentity" FromRole="ProfileIdentity" ToRole="Profile" />
+          <NavigationProperty Name="Skills" Relationship="Self.FK_Skill_ProfileIdentity" FromRole="ProfileIdentity" ToRole="Skill" />
+          <NavigationProperty Name="SkillCategories" Relationship="Self.FK_SkillCategory_ProfileIdentity" FromRole="ProfileIdentity" ToRole="SkillCategory" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SkillCategory" Type="Int32" Nullable="false" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="Proficiency" Type="Int32" Nullable="false" />
+          <Property Name="ProfileNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProfileIdentity" Relationship="Self.FK_Skill_ProfileIdentity" FromRole="Skill" ToRole="ProfileIdentity" />
+          <NavigationProperty Name="SkillCategory1" Relationship="Self.FK_Skill_SkillCategory" FromRole="Skill" ToRole="SkillCategory" />
+        </EntityType>
+        <EntityType Name="SkillCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="ProfileNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProfileIdentity" Relationship="Self.FK_SkillCategory_ProfileIdentity" FromRole="SkillCategory" ToRole="ProfileIdentity" />
+          <NavigationProperty Name="Skills" Relationship="Self.FK_Skill_SkillCategory" FromRole="SkillCategory" ToRole="Skill" />
+        </EntityType>
+        <Association Name="FK_Contact_ProfileIdentity">
+          <End Role="ProfileIdentity" Type="Self.ProfileIdentity" Multiplicity="1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileIdentity">
+              <PropertyRef Name="ProfileNo" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="ProfileNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Education_ProfileIdentity">
+          <End Role="ProfileIdentity" Type="Self.ProfileIdentity" Multiplicity="1" />
+          <End Role="Education" Type="Self.Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileIdentity">
+              <PropertyRef Name="ProfileNo" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="ProfileNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Experience_ProfileIdentity">
+          <End Role="ProfileIdentity" Type="Self.ProfileIdentity" Multiplicity="1" />
+          <End Role="Experience" Type="Self.Experience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileIdentity">
+              <PropertyRef Name="ProfileNo" />
+            </Principal>
+            <Dependent Role="Experience">
+              <PropertyRef Name="ProfileNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profile_ProfileIdentity">
+          <End Role="ProfileIdentity" Type="Self.ProfileIdentity" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileIdentity">
+              <PropertyRef Name="ProfileNo" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="ProfileNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Skill_ProfileIdentity">
+          <End Role="ProfileIdentity" Type="Self.ProfileIdentity" Multiplicity="1" />
+          <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileIdentity">
+              <PropertyRef Name="ProfileNo" />
+            </Principal>
+            <Dependent Role="Skill">
+              <PropertyRef Name="ProfileNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillCategory_ProfileIdentity">
+          <End Role="ProfileIdentity" Type="Self.ProfileIdentity" Multiplicity="1" />
+          <End Role="SkillCategory" Type="Self.SkillCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileIdentity">
+              <PropertyRef Name="ProfileNo" />
+            </Principal>
+            <Dependent Role="SkillCategory">
+              <PropertyRef Name="ProfileNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Skill_SkillCategory">
+          <End Role="SkillCategory" Type="Self.SkillCategory" Multiplicity="1" />
+          <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Skill">
+              <PropertyRef Name="SkillCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_112456_mohansglobeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Educations" EntityType="Self.Education" />
+          <EntitySet Name="Experiences" EntityType="Self.Experience" />
+          <EntitySet Name="Profiles" EntityType="Self.Profile" />
+          <EntitySet Name="ProfileIdentities" EntityType="Self.ProfileIdentity" />
+          <EntitySet Name="Skills" EntityType="Self.Skill" />
+          <EntitySet Name="SkillCategories" EntityType="Self.SkillCategory" />
+          <AssociationSet Name="FK_Contact_ProfileIdentity" Association="Self.FK_Contact_ProfileIdentity">
+            <End Role="ProfileIdentity" EntitySet="ProfileIdentities" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Education_ProfileIdentity" Association="Self.FK_Education_ProfileIdentity">
+            <End Role="ProfileIdentity" EntitySet="ProfileIdentities" />
+            <End Role="Education" EntitySet="Educations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Experience_ProfileIdentity" Association="Self.FK_Experience_ProfileIdentity">
+            <End Role="ProfileIdentity" EntitySet="ProfileIdentities" />
+            <End Role="Experience" EntitySet="Experiences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profile_ProfileIdentity" Association="Self.FK_Profile_ProfileIdentity">
+            <End Role="ProfileIdentity" EntitySet="ProfileIdentities" />
+            <End Role="Profile" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Skill_ProfileIdentity" Association="Self.FK_Skill_ProfileIdentity">
+            <End Role="ProfileIdentity" EntitySet="ProfileIdentities" />
+            <End Role="Skill" EntitySet="Skills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillCategory_ProfileIdentity" Association="Self.FK_SkillCategory_ProfileIdentity">
+            <End Role="ProfileIdentity" EntitySet="ProfileIdentities" />
+            <End Role="SkillCategory" EntitySet="SkillCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Skill_SkillCategory" Association="Self.FK_Skill_SkillCategory">
+            <End Role="SkillCategory" EntitySet="SkillCategories" />
+            <End Role="Skill" EntitySet="Skills" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_112456_mohansglobeModelStoreContainer" CdmEntityContainer="DB_112456_mohansglobeEntities">
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="DB_112456_mohansglobeModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ProfileNo" ColumnName="ProfileNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Educations">
+            <EntityTypeMapping TypeName="DB_112456_mohansglobeModel.Education">
+              <MappingFragment StoreEntitySet="Education">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Institution" ColumnName="Institution" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="HighlightKey" ColumnName="HighlightKey" />
+                <ScalarProperty Name="ProfileNo" ColumnName="ProfileNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Experiences">
+            <EntityTypeMapping TypeName="DB_112456_mohansglobeModel.Experience">
+              <MappingFragment StoreEntitySet="Experience">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Responsibilities" ColumnName="Responsibilities" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="HighlightKey" ColumnName="HighlightKey" />
+                <ScalarProperty Name="ProfileNo" ColumnName="ProfileNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="DB_112456_mohansglobeModel.Profile">
+              <MappingFragment StoreEntitySet="Profile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FacebookId" ColumnName="FacebookId" />
+                <ScalarProperty Name="MailId" ColumnName="MailId" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Skype" ColumnName="Skype" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="LinkedInId" ColumnName="LinkedInId" />
+                <ScalarProperty Name="TwitterId" ColumnName="TwitterId" />
+                <ScalarProperty Name="GooglePlusId" ColumnName="GooglePlusId" />
+                <ScalarProperty Name="ProfileNo" ColumnName="ProfileNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileIdentities">
+            <EntityTypeMapping TypeName="DB_112456_mohansglobeModel.ProfileIdentity">
+              <MappingFragment StoreEntitySet="ProfileIdentity">
+                <ScalarProperty Name="ProfileNo" ColumnName="ProfileNo" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ProfileSummary" ColumnName="ProfileSummary" />
+                <ScalarProperty Name="ResumeLocation" ColumnName="ResumeLocation" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="DB_112456_mohansglobeModel.Skill">
+              <MappingFragment StoreEntitySet="Skill">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="SkillCategory" ColumnName="SkillCategory" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Proficiency" ColumnName="Proficiency" />
+                <ScalarProperty Name="ProfileNo" ColumnName="ProfileNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillCategories">
+            <EntityTypeMapping TypeName="DB_112456_mohansglobeModel.SkillCategory">
+              <MappingFragment StoreEntitySet="SkillCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="ProfileNo" ColumnName="ProfileNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

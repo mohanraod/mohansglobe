@@ -1,0 +1,89 @@
+﻿@model ProfileIdentity
+           @{
+               var profileInfo = Model.Profiles.FirstOrDefault();
+           }
+<div id="v-card-holder" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div id="v-card" class="card">
+                    <div id="profile" class="right">
+                        <img alt="profile-image" class="img-responsive" src="~/content/images/profile/dp.jpg">
+                        <div class="slant"></div>
+                    </div>
+                    <div id="close-btn" class="btn-floating icon-close">
+                        <i class="fa fa-close"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-headings">
+                            <h4 class="text-uppercase left">@profileInfo.FirstName</h4>
+                            <h6 class="text-capitalize left">@Model.Title</h6>
+                        </div>
+                        <div class="infos">
+                            <ul class="profile-list">
+                                <li class="clearfix">
+                                    <span class="title"><i class="material-icons">email</i></span>
+                                    <span class="content">@profileInfo.MailId</span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="title"><i class="material-icons">language</i></span>
+                                    <span class="content">@profileInfo.Website</span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="title"><i class="fa fa-skype" aria-hidden="true"></i></span>
+                                    <span class="content">@profileInfo.Skype</span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="title"><i class="material-icons">phone</i></span>
+                                    <span class="content">@profileInfo.Mobile</span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="title"><i class="material-icons">place</i></span>
+                                    <span class="content">@profileInfo.Location</span>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="links">
+                            <a href="@profileInfo.FacebookId" id="first_one"
+                               class="social btn-floating indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="@profileInfo.TwitterId" class="social  btn-floating blue">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social  btn-floating red">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="@profileInfo.LinkedInId" class="social  btn-floating blue darken-3">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="about" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="about-card" class="card">
+                    <div class="card-content">
+                        <p>
+                            @Model.ProfileSummary
+                        </p>
+                    </div>
+                    <div id="about-btn" class="card-action">
+                        <div class="about-btn">
+                            <a href="~/docs/mohanrao_resume.pdf" class="btn waves-effect">Download CV</a>
+                            <a href="#contact" class="btn waves-effect">Contact Me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

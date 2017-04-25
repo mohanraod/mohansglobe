@@ -406,7 +406,7 @@
                 $('div#form-loader').removeClass('is-hidden').fadeIn(500);
                 $.ajax({
                     type: 'POST',
-                    url: 'php/mail_handler.php',
+                    url: 'home/contactme',
                     data: post_data
                 }).done(function () {
                     $('div#form-loader').fadeOut(500);
