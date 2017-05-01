@@ -142,6 +142,8 @@
       <DependentUpon>EntityModel.edmx</DependentUpon>
       <LastGenOutput>EntityModel.cs</LastGenOutput>
     </Content>
+    <Content Include="docs\mohanrao_resume.pdf" />
+    <None Include="Properties\PublishProfiles\personal site.pubxml" />
     <None Include="Properties\PublishProfiles\PersonalBlog.pubxml" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\custom.js" />

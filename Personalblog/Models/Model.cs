@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Web;
 
@@ -40,6 +42,20 @@ namespace Personalblog
             {
                 return false;
             }
+        }
+
+        public string GetRequestCountry(HttpRequest request)
+        {
+            String UserIP = request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (string.IsNullOrEmpty(UserIP))
+            {
+                UserIP = request.ServerVariables["REMOTE_ADDR"];
+            }
+            string url = "http://freegeoip.net/json/" + UserIP.ToString();
+            WebClient client = new WebClient();
+            string jsonstring = client.DownloadString(url);
+            dynamic dynObj = JsonConvert.DeserializeObject(jsonstring);
+            return dynObj.country_code;
         }
     }
 }
