@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls.CommentList" Codebehind="CommentList.ascx.cs" %>
 <%@ Import Namespace="BlogEngine.Core" %>
 
-<div class="well-global">
+<div class="well-global hide">
     <% if (CommentCounter > 0){ %>
     <h3 id="comment" class="well-global-title">
         <%=Resources.labels.comments %> (<%=CommentCounter%>)
@@ -62,6 +62,6 @@
     }
 </script>
 
-<asp:Label runat="server" ID="lbCommentsDisabled" CssClass="lbl-CommentsDisabled" Visible="false">
+<asp:Label runat="server" ID="lbCommentsDisabled" CssClass="lbl-CommentsDisabled hide" Visible="false">
     <%=Resources.labels.commentsAreClosed %>
 </asp:Label>

@@ -558,6 +558,7 @@
     <Content Include="Custom\Themes\Standard-2015\css\styles.css" />
     <Content Include="Custom\Themes\Standard-2015\fonts\fontello.svg" />
     <Content Include="Custom\Themes\Standard-2015\images\carrow.png" />
+    <Content Include="Custom\Themes\Standard-2015\images\favicon.ico" />
     <Content Include="Custom\Themes\Standard-2015\images\sarrow.png" />
     <Content Include="Custom\Themes\Standard-2015\newsletter.html" />
     <Content Include="Custom\Themes\Standard-2015\PostNavigation.ascx" />
@@ -739,6 +740,8 @@
     <Content Include="Custom\Themes\Standard-2015\site.master" />
     <Content Include="admin\themes\standard\README.md" />
     <Content Include="admin\themes\standard\scss\rtl\_rtl.widgets.scss" />
+    <Content Include="Custom\Themes\Standard-2015\fonts\Museo_Slab_500.otf" />
+    <None Include="Properties\PublishProfiles\Blog.pubxml" />
     <None Include="Properties\PublishProfiles\PersonalBlog.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />

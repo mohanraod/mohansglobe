@@ -32,7 +32,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href="css/animate.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
-    <link rel="icon" href="~/content/images/blog/favicon.ico">
+    <link rel="icon" href="images/favicon.ico" />
     <link href="~/scripts/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
     <link href="~/scripts/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/XRegExp.js"></script>
@@ -49,15 +49,14 @@
                     <span class="load-box"><span class="box-inner"></span></span>
                 </div>
                 <div class="text-holder text-center">
-                    <h2>Mohan Rao</h2>
-                    <h6>Full Stack Web Application Developer</h6>
+                    <h2><%=BlogSettings.Instance.Name %></h2>
                 </div>
             </div>
         </div>
     </div>
     <form runat="Server">
         <div class="wrapper">
-            <header class="header text-uppercase">
+            <header class="header">
                 <div class="container">
                     <div class="header-title float-left">
                         <h1><a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a></h1>
@@ -67,8 +66,8 @@
                         <ul>
                             <li><a href="<%=Utils.AbsoluteWebRoot %>"><%=Resources.labels.home %></a></li>
                             <li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>
-                            <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
-                            <li class="login-link"><a runat="server" id="aLogin"></a></li>
+                            <li><a href="http://www.mohansglobe.com#contact">Contact</a></li>
+                            <li class="login-link hide"><a runat="server" id="aLogin"></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -87,7 +86,7 @@
             <div class="container">
                 <p class="copyright float-left">
                     <span>Copyright &copy; <%=DateTime.Now.Year %> - <a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a></span>
-                    <span>Powered by <a href="http://dotnetblogengine.net" target="_blank" title="BlogEngine.NET <%=BlogSettings.Instance.Version() %>">BlogEngine.NET</a></span>
+                    <span>Powered by <a href="http://mohansglobe.com" target="_blank" title="Mohan Rao | Full Stack Application Developer | Chennai-India">Mohan Rao</a></span>
                 </p>
                 <ul class="float-right list-unstyled social-network">
                     <li><a href="[CUSTOMFIELD|THEME|Standard-2015|Facebook Account|/]" rel="external nofollow"><i class="icon-facebook"></i></a></li>
@@ -120,6 +119,9 @@
         if (loginLink == "/admin/") {
             $(".header-nav ul").append('<li><a href="<%=Utils.AbsoluteWebRoot %>Account/login.aspx?logoff">Logoff</a></li>');
         }
+        jQuery(window).on('load', function () {
+            $('div#loading').fadeOut(500);
+        });
     </script>
 </body>
 </html>

@@ -15,7 +15,7 @@
             <span class="post-author"><i class=" icon-user"></i><a href="<%=Utils.AbsoluteWebRoot + "author/" + Utils.RemoveIllegalCharacters(Post.Author + BlogConfig.FileExtension) %>"><%=Post.AuthorProfile != null ? Utils.RemoveIllegalCharacters(Post.AuthorProfile.DisplayName) : Utils.RemoveIllegalCharacters(Post.Author) %></a></span>
             <span class="post-category"><i class=" icon-folder"></i><%=CategoryLinks(", ") %></span>
 
-            <% if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Disqus){ %>
+            <%--<% if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Disqus){ %>
             <a rel="nofollow" class="pull-right " href="<%=Post.RelativeOrAbsoluteLink %>#comment">
                 <i class="icon-comment"></i><span class="disqus-comment-count" data-disqus-url="<%=Post.AbsoluteLink %>"></span> 
 			</a>
@@ -37,7 +37,7 @@
             <a rel="nofollow" class="pull-right " href="<%=Post.RelativeOrAbsoluteLink %>#comment">
                 <i class="icon-comment"></i>(<%=Post.ApprovedComments.Count %>)
             </a>
-            <%} %>
+            <%} %>--%>
         </div>
     </header>
     <section class="post-body text">
