@@ -18,7 +18,6 @@ namespace Personalblog
         public string Title { get; set; }
         public string Company { get; set; }
         public string Year { get; set; }
-        public string Position { get; set; }
         public string Role { get; set; }
         public string Responsibilities { get; set; }
         public string Location { get; set; }
@@ -26,6 +25,8 @@ namespace Personalblog
         public int Priority { get; set; }
         public string HighlightKey { get; set; }
         public int ProfileNo { get; set; }
+        public string Project { get; set; }
+        public string ProjectDescription { get; set; }
     
         public virtual ProfileIdentity ProfileIdentity { get; set; }
     }

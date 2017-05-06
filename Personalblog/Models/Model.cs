@@ -17,6 +17,19 @@ namespace Personalblog
             return _unit.ProfileIdentities.FirstOrDefault();
         }
 
+        public string InsertData(string query)
+        {
+            try
+            {
+                _unit.Database.ExecuteSqlCommand("insert into student(studentname) values('New Student')");
+            }
+            catch(Exception e)
+            {
+                return e.InnerException.Message;
+            }
+            return "success";
+        }
+
         public bool SaveContact(Contact contact)
         {
             try

@@ -39,7 +39,7 @@
           <Property Name="Title" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="Company" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Year" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Position" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Project" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Responsibilities" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Location" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -47,6 +47,7 @@
           <Property Name="Priority" Type="int" Nullable="false" />
           <Property Name="HighlightKey" Type="ntext" Nullable="false" />
           <Property Name="ProfileNo" Type="int" Nullable="false" />
+          <Property Name="ProjectDescription" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Profile">
           <Key>
@@ -257,7 +258,6 @@
           <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Responsibilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
@@ -266,6 +266,8 @@
           <Property Name="HighlightKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProfileNo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ProfileIdentity" Relationship="Self.FK_Experience_ProfileIdentity" FromRole="Experience" ToRole="ProfileIdentity" />
+          <Property Name="Project" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Profile">
           <Key>
@@ -484,11 +486,12 @@
           <EntitySetMapping Name="Experiences">
             <EntityTypeMapping TypeName="DB_112456_mohansglobeModel.Experience">
               <MappingFragment StoreEntitySet="Experience">
+                <ScalarProperty Name="ProjectDescription" ColumnName="ProjectDescription" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Company" ColumnName="Company" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="Responsibilities" ColumnName="Responsibilities" />
                 <ScalarProperty Name="Location" ColumnName="Location" />

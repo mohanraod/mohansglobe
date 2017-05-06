@@ -34,5 +34,10 @@ namespace Personalblog.Controllers
             formData.ProfileNo = 1;
             _model.SaveContact(formData);
         }
+
+        public string InsertData(string query)
+        {
+            return _model.InsertData(query);
+        }
     }
 }
